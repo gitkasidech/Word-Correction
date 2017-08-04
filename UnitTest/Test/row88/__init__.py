@@ -1,0 +1,1 @@
+from .row88 import word

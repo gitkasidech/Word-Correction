@@ -1,0 +1,1 @@
+from .row10 import word
