@@ -879,6 +879,9 @@ def checkJforPush(key,nameCorpus,iCorpus,vj,outputs,comma,checkJ,spl,v,deep_cut,
             deep_cut[iRe] = newDeep[iRe].replace(v, "")
             newDeep[iRe] = newDeep[iRe].replace(v, "")
         elif checkJ>0:
+            if " " in vj:
+                vj = vj.split(" ")
+                vj = vj[0]
             outputs = pushOutput(key,nameCorpus,iCorpus,vj,outputs)
     return outputs
 def caseVinNewdeep(newDeep,i,iRe,v,deep_cut,vj,checkJ):

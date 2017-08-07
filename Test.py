@@ -1,4 +1,19 @@
- # -*- coding: utf-8 -*-
+# coding=utf8
+def main():
+    deep_cut = ["paypal", "โอน", "เงิน", "เข้า", "ธนาคาร", "แล้ว", "ต้อง", "รอ", "ทาง", "ธนาคารโอน", "เงิน", "เข้า", "บัญชี", "กี่", "วัน", "คะ"]
+    syntax = {}
+    eng2tha = {}
+    bay = {}
+    bank = {"ธนาคาร":["ธนาคาร"],"โอน":["โอน"]}
+    general = {}
+
+    outputs = {}
+    corpus = [syntax,eng2tha,bay,bank,general]
+    nameCorpus = ["|syntax","|eng2tha","|bay","|bank","|general"]
+
+    outputs = algor(deep_cut,outputs,corpus,nameCorpus)
+    print(outputs)
+
 def algor(deep_cut,outputs,corpus,nameCorpus):
 
     iCorpus = 0
@@ -36,6 +51,7 @@ def loopValue(newDeep,value,deep_cut,lenDeep,key,nameCorpus,iCorpus,outputs):
 
         if "," in v:
             comma = 1
+
         spl = v.split(",")
 
         vOut,checkJ,iRe = loopPushVout(newDeep,iRe,v,deep_cut,vOut,checkJ,lenDeep,spl,comma)
@@ -103,3 +119,21 @@ def caseCommaIs1(spl,vOut,checkJ,i,deep_cut,newDeep,iRe):
             checkJ = checkJ+1
             iRe = i
     return vOut,checkJ,iRe
+
+main()
+
+# deep_cut = ["ข้อความ", "แจ้ง", "ยอด", "เงิน", "เข้ายอด", "เงิน", "ออก", "ไม่", "เข้า", "มือถือ", "เลย", "ค่ะ"]
+# general = {"ยอด":["ยอด"],"เงิน":["เงิน"]}
+# ["ยอด","ยอด"] --> ["ยอด ยอด"] --> ["ยอด"]
+
+# deep_cut = ["Otp โดน", "ล๊อค"]
+# eng2tha = {"โอทีพี":["otp"]}
+
+# deep_cut = ["กด", "เงิน", "สด", "จาก", "บัตร", "A", "TM"]
+# eng2tha = {"เอทีเอ็ม":["a,tm"]}
+
+# deep_cut = ["ดอก", "เบี๋ย", "เท่า", "ไร", "คะ"]
+# bank = {"ดอกเบี้ย":["ดอก,เปี้ย","ดอก,เยี้ย","ดอก,เบี๋ย","ดอก,เบี้ย"]}
+
+# deep_cut = ["กี่", "วัน", "อนุมัตคับ"]
+# bay = {"อนุมัติ":["อนุมัต"]}

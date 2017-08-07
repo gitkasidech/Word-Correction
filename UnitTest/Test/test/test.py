@@ -139,7 +139,7 @@ class TestStringMethods(unittest.TestCase):
 
     def test_case11(self):
          deep_cut11 = ["ข้อความ", "แจ้ง", "ยอด", "เงิน", "เข้ายอด", "เงิน", "ออก", "ไม่", "เข้า", "มือถือ", "เลย", "ค่ะ"]
-         self.assertEqual(row11.word(deep_cut11), {'ยอด|general': 'ยอด ยอด', 'เงิน|general': 'เงิน เงิน'})
+         self.assertEqual(row11.word(deep_cut11), {'ยอด|general': 'ยอด', 'เงิน|general': 'เงิน'})
 
     def test_case12(self):
          deep_cut12 = ["ขอรับ", " ", "username", " ", "password", " ", "ของ", "ทาง", "ธนาคาร", "ได้", "ไหม", "ครับ"]
@@ -163,7 +163,7 @@ class TestStringMethods(unittest.TestCase):
 
     def test_case17(self):
          deep_cut17 = ["paypal", "โอน", "เงิน", "เข้า", "ธนาคาร", "แล้ว", "ต้อง", "รอ", "ทาง", "ธนาคารโอน", "เงิน", "เข้า", "บัญชี", "กี่", "วัน", "คะ"]
-         self.assertEqual(row17.word(deep_cut17), {'ธนาคาร|bank': 'ธนาคาร ธนาคาร', 'โอน|bank': 'โอน โอน'})
+         self.assertEqual(row17.word(deep_cut17), {'ธนาคาร|bank': 'ธนาคาร', 'โอน|bank': 'โอน'})
 
 
     def test_case18(self):
