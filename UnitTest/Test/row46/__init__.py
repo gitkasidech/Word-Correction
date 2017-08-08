@@ -1,1 +1,0 @@
-from .row46 import word

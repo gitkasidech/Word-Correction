@@ -1,1 +1,0 @@
-from .row18 import word
